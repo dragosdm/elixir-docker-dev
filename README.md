@@ -9,15 +9,15 @@ For local development, I create a docker image called `phoenix:VERSION` (where V
 There are 4 files in this repo: `.env`, `Dockerfile`, `docker-compose.yml` and `Makefile` and I have 2 was for creating new projects:
 
 1. Clone this repo
-2. Edit .env file 
+2. Edit `.env` file 
 3. Chose one of the following paths:
     - Everything from `make`
-        - make setup
-        - edit $APP_NAME/config/dev.exs
-        - cd $APP_NAME
-        - docker compose --env-file ../.env up
+        - `make setup`
+        - edit `$APP_NAME/config/dev.exs`
+        - `cd $APP_NAME`
+        - `docker compose --env-file ../.env up`
     - Interactive way
-        - make cli
+        - `make cli`
         - `Mix`: `mix new new_mix_project` *OR*
         - `Phoenix`: `mix phx.new new_phx_project --install --live`
         - now you have a new folder called `new_mix_project` and you can `eixt` the container or run mix phx.server and play with it
