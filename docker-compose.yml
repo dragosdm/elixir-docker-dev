@@ -4,7 +4,7 @@ services:
   db:
     image: postgres:latest
     restart: always
-    environment: 
+    environment:
       PGUSER: postgres
       POSTGRES_PASSWORD: postgres
       POSTRES_DB: ${APP_NAME}_dev
@@ -22,9 +22,9 @@ services:
     restart: always
     ports:
       - 8080:8080
-  
+
   web:
-    depends_on: 
+    depends_on:
       db:
         condition: service_healthy
     image: ${APP_NAME}:dev-latest
@@ -40,4 +40,4 @@ services:
     volumes:
       - ./:${APP_HOME}
     command:
-      bash -c " cd assets && npm install && node node_modules/webpack/bin/webpack.js --mode development && cd .. && mix ecto.create && mix ecto.migrate && mix phx.server"
+      bash -c "mix do deps.get, compile && cd assets && npm install && node node_modules/webpack/bin/webpack.js --mode development && cd .. && mix ecto.create && mix ecto.migrate && mix phx.server"
