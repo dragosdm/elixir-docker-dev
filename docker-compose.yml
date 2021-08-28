@@ -35,6 +35,8 @@ services:
         APP_HOME: ${APP_HOME}
         LOCAL_USER: ${LOCAL_USER}
         EXP_PORT: ${EXP_PORT}
+        ELIXIR_VER: ${ELIXIR_VER}
+        PHOENIX_VER: ${PHOENIX_VER}
     ports:
       - ${EXP_PORT}:4000
     volumes:
